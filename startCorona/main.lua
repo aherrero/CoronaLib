@@ -41,7 +41,7 @@ function creacubo()
 	-- crate.x, crate.y = 160, -100
 	crate.x = math.random( 20, halfW-20 )
 	crate.y  = math.random( 0, 20 )
-	crate.rotation = 15
+	crate.rotation = 0
 	physics.addBody( crate, { density=1.0, friction=0.3, bounce=0.3 } )
 end
 
@@ -62,3 +62,16 @@ local sky = display.newImage( "cloud.png" )
 sky.x = halfW/2; sky.y = halfH/5
 
 display.currentStage:addEventListener( "tap", creacubo )
+
+
+--[[
+
+local function myTouchListener( event )
+
+    print( "Touch X location"..event.x )
+    print( "Touch Y location"..event.y )
+end
+
+Runtime:addEventListener( "touch", myTouchListener )
+
+]]
